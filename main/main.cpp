@@ -215,15 +215,15 @@ extern "C" void app_main(void)
     // Lock the mutex due to the LVGL APIs are not thread-safe
     if (example_lvgl_lock(-1)) {
 
-// #if   CONFIG_USE_DEMO_WIDGETS
-        // lv_demo_widgets();
-// #elif CONFIG_USE_DEMO_BENCHMARK
-        // lv_demo_benchmark();
-// #elif CONFIG_USE_DEMO_STRESS
-//         lv_demo_stress();
-// #elif CONFIG_USE_DEMO_MUSIC
+ #if   CONFIG_USE_DEMO_WIDGETS
+         lv_demo_widgets();
+ #elif CONFIG_USE_DEMO_BENCHMARK
+         lv_demo_benchmark();
+ #elif CONFIG_USE_DEMO_STRESS
+         lv_demo_stress();
+ #elif CONFIG_USE_DEMO_MUSIC
         lv_demo_music();
-// #endif
+ #endif
         // Release the mutex
         example_lvgl_unlock();
     }
